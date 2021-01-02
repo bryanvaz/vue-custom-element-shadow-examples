@@ -12,6 +12,15 @@
       <strong>We're sorry but <%= htmlWebpackPlugin.options.title %> doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
     </noscript>
     <div id="app"></div>
+    <h1>Shadow Dom Examples</h1>
+    <p>The following examples demonstrate how to isolate web components and their stylings in the shadow dom</p>
+    <h2>Example 1: Simple Class Names</h2>
+    <div class="standalone-text">
+      <p class="standalone-text-red">
+        This standalone-text was rendered by the parent HTML. The color should <strong>NOT</strong> be red.
+      </p>
+    </div>
+    <standalone-text></standalone-text>
     <!-- built files will be auto injected -->
   </body>
 </html>
