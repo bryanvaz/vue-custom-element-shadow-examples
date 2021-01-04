@@ -17,4 +17,7 @@ export default {
 .standalone-text-red {
   color: red;
 }
+.findmestyle {
+  display: initial;
+}
 </style>

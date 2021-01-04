@@ -1,31 +1,33 @@
 function enableShadowCss(config) {
   const configs = [
+    // Required to explicitly call the __inject__ function exported by
+    // vue-style-loader on vue mounting
+    // (though the shadow DOM should be created and marked
+    //  first by the main js or the style injection will fail)
     config.module.rule('vue').use('vue-loader'),
-    config.module.rule('css').oneOf('vue-modules').use('vue-style-loader'),
-    config.module.rule('css').oneOf('vue').use('vue-style-loader'),
-    config.module.rule('css').oneOf('normal-modules').use('vue-style-loader'),
-    config.module.rule('css').oneOf('normal').use('vue-style-loader'),
-    config.module.rule('postcss').oneOf('vue-modules').use('vue-style-loader'),
-    config.module.rule('postcss').oneOf('vue').use('vue-style-loader'),
-    config.module.rule('postcss').oneOf('normal-modules').use('vue-style-loader'),
-    config.module.rule('postcss').oneOf('normal').use('vue-style-loader'),
-    config.module.rule('scss').oneOf('vue-modules').use('vue-style-loader'),
-    config.module.rule('scss').oneOf('vue').use('vue-style-loader'),
-    config.module.rule('scss').oneOf('normal-modules').use('vue-style-loader'),
-    config.module.rule('scss').oneOf('normal').use('vue-style-loader'),
-    config.module.rule('sass').oneOf('vue-modules').use('vue-style-loader'),
-    config.module.rule('sass').oneOf('vue').use('vue-style-loader'),
-    config.module.rule('sass').oneOf('normal-modules').use('vue-style-loader'),
-    config.module.rule('sass').oneOf('normal').use('vue-style-loader'),
-    config.module.rule('less').oneOf('vue-modules').use('vue-style-loader'),
-    config.module.rule('less').oneOf('vue').use('vue-style-loader'),
-    config.module.rule('less').oneOf('normal-modules').use('vue-style-loader'),
-    config.module.rule('less').oneOf('normal').use('vue-style-loader'),
-    config.module.rule('stylus').oneOf('vue-modules').use('vue-style-loader'),
-    config.module.rule('stylus').oneOf('vue').use('vue-style-loader'),
-    config.module.rule('stylus').oneOf('normal-modules').use('vue-style-loader'),
-    config.module.rule('stylus').oneOf('normal').use('vue-style-loader'),
   ];
+  const ruleSets = ['css', 'postcss', 'scss', 'sass', 'less', 'stylus'];
+  const ruleNames = ['vue-modules', 'vue', 'normal-modules', 'normal'];
+  // console.info('**** config.module.rules **** ');
+  // console.info(config.module.rules.store.keys());
+
+  ruleSets.forEach((ruleSet) => {
+    if (config.module.rules.store.has(ruleSet)) {
+      // console.info(`**** config.module.rule(${ruleSet}) names: `);
+      // console.info(config.module.rule(ruleSet).oneOfs.store.keys());
+
+      ruleNames.forEach((rName) => {
+        if (config.module.rule(ruleSet).oneOfs.store.has(rName)) {
+          // console.info(`**** config.module.rule(${ruleSet}).oneOf(${rName}) uses: `);
+          // console.info(config.module.rule(ruleSet).oneOf(rName).uses.store.keys());
+          if (config.module.rule(ruleSet).oneOf(rName).uses.store.has('vue-style-loader')) {
+            // console.info(`*** vue-style-loader found in rule(${ruleSet}).oneOf(${rName})!`);
+            configs.push(config.module.rule(ruleSet).oneOf(rName).use('vue-style-loader'));
+          }
+        }
+      });
+    }
+  });
   if (!process.env.BUILD_MODE) {
     process.env.BUILD_MODE = config.store.get('mode');
   }
@@ -39,12 +41,12 @@ function enableShadowCss(config) {
 module.exports = {
   chainWebpack:
     (config) => {
-      config.resolve.symlinks(false);
+      // config.resolve.symlinks(false);
       enableShadowCss(config);
     },
   css: {
-    // sourceMap: true,
-    // extract: false,
+    sourceMap: true,
+    extract: false,
     // modules: true,
   },
 };

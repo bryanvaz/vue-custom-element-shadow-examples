@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>webComponent demo</title>
+    <script src="./dist/shadow-sample.umd.js"></script>
+  </head>
+  <body>
+    <h1>Shadow Dom Examples</h1>
+    <p>The following examples demonstrate how to isolate web components and their stylings in the shadow dom</p>
+    <h2>Example 1: Simple Class Names</h2>
+    <div class="standalone-text">
+      <p class="standalone-text-red">
+        This standalone-text was rendered by the parent HTML. The color should <strong>NOT</strong> be red.
+      </p>
+    </div>
+    <standalone-text></standalone-text>
+    <!-- built files will be auto injected -->
+  </body>
+</html>

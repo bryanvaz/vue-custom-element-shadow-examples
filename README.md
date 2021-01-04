@@ -1,24 +1,14 @@
 # vue-custom-element-shadow-examples
 
-## Project setup
+Demonstrates how ShadowDOM functionality should work with VueCLI 3 based projects
+
+## Run example in dev mode
 ```
 yarn install
+yarn watch
 ```
 
-### Compiles and hot-reloads for development
+### Compiles and builds web component
 ```
-yarn serve
+yarn build:lib
 ```
-
-### Compiles and minifies for production
-```
-yarn build
-```
-
-### Lints and fixes files
-```
-yarn lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
