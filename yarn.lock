@@ -8462,10 +8462,9 @@ vuetify-loader@^1.6.0:
     file-loader "^4.0.0"
     loader-utils "^1.2.0"
 
-vuetify@^2.4.0:
+"vuetify@git+https://github.com/bryanvaz/vuetify-pkg.git#master":
   version "2.4.0"
-  resolved "https://registry.yarnpkg.com/vuetify/-/vuetify-2.4.0.tgz#6aa2616b0fecb0614cf85052b0ffbb5cad80bf92"
-  integrity sha512-FBFAtg1ZnNwDBhMzENCzgh0hBV+HMjXejrxeRQqTfKPojKQSQFswtdHatUPmlkArDulZC73GRs2F/IwdF48o5g==
+  resolved "git+https://github.com/bryanvaz/vuetify-pkg.git#0ea303202b6bfb1198acf495354aa5bb4419755d"
 
 watchpack-chokidar2@^2.0.1:
   version "2.0.1"

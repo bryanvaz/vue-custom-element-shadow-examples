@@ -50,10 +50,16 @@ Vue.customElement('style-module-example', StyleModuleExample, {
   },
 });
 
+// new Vue({
+//   vuetify,
+//   render: (h) => h(VuetifyButton),
+// }).$mount('#vuetify-example');
+
 VuetifyButton.vuetify = vuetify;
 
 Vue.customElement('vuetify-button', VuetifyButton, {
   shadow: true,
+  // shadowCss: vuetifyCss,
   beforeCreateVueInstance(root) {
     console.debug('[vuetify-btn]: beforeCreateVueInstance');
     const rootNode = root.el.getRootNode();
