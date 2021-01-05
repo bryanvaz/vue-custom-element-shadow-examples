@@ -1,3 +1,5 @@
+const VuetifyLoaderPlugin = require('vuetify-loader/lib/plugin');
+
 function enableShadowCss(config) {
   const configs = [
     // Required to explicitly call the __inject__ function exported by
@@ -39,6 +41,12 @@ function enableShadowCss(config) {
 }
 
 module.exports = {
+  configureWebpack: {
+    devtool: 'source-map',
+    plugins: [
+      new VuetifyLoaderPlugin(),
+    ],
+  },
   chainWebpack:
     (config) => {
       // config.resolve.symlinks(false);
