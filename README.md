@@ -4,6 +4,8 @@ Demonstrates how ShadowDOM based WebComponents functionality should work with Vu
 
 This project uses [vue-custom-element](https://github.com/karol-f/vue-custom-element) for WebComponent functionality, however similar principles should apply for the native web-component-wrapper.
 
+Working example: https://bryanvaz.github.io/vue-custom-element-shadow-examples/
+
 ## Run example in dev mode
 ```
 yarn install
