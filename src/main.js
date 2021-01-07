@@ -5,7 +5,7 @@ import vuetify from '@/plugins/vuetify'; // path to vuetify export
 // import App from './App.vue';
 import StandaloneText from './components/StandaloneText.vue';
 import StyleModuleExample from './components/StyleModuleExample.vue';
-import VuetifyButton from './components/VuetifyButton.vue';
+import VuetifyExample from './components/VuetifyExample.vue';
 
 Vue.config.productionTip = false;
 
@@ -50,24 +50,17 @@ Vue.customElement('style-module-example', StyleModuleExample, {
   },
 });
 
-// new Vue({
-//   vuetify,
-//   render: (h) => h(VuetifyButton),
-// }).$mount('#vuetify-example');
+VuetifyExample.vuetify = vuetify;
 
-VuetifyButton.vuetify = vuetify;
-
-Vue.customElement('vuetify-button', VuetifyButton, {
+Vue.customElement('vuetify-example', VuetifyExample, {
   shadow: true,
   // shadowCss: vuetifyCss,
   beforeCreateVueInstance(root) {
-    console.debug('[vuetify-btn]: beforeCreateVueInstance');
     const rootNode = root.el.getRootNode();
 
     if (rootNode instanceof ShadowRoot) {
       // eslint-disable-next-line no-param-reassign
       root.shadowRoot = rootNode;
-      console.debug('[vuetify-btn] shadowRoot is: ', rootNode);
     } else {
       // eslint-disable-next-line no-param-reassign
       root.shadowRoot = document.head;
