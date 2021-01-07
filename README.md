@@ -1,8 +1,8 @@
-# vue-custom-element-shadow-examples
+# ShadowDOM examples for vue-custom-element
 
 Demonstrates how ShadowDOM based WebComponents functionality should work with VueCLI 3 based projects.
 
-This project uses (vue-custom-components)[https://github.com/karol-f/vue-custom-element] for WebComponent functionality, however similar principles should apply for the native web-component-wrapper.
+This project uses [vue-custom-element](https://github.com/karol-f/vue-custom-element) for WebComponent functionality, however similar principles should apply for the native web-component-wrapper.
 
 ## Run example in dev mode
 ```
