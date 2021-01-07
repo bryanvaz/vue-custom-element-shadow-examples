@@ -8,7 +8,7 @@
     "inspect": "vue-cli-service inspect",
     "lint": "vue-cli-service lint",
     "build:lib": "vue-cli-service build --target lib --inline-vue --name shadow-sample src/main.js",
-    "build:pages": "vue-cli-service build --target lib --inline-vue --name shadow-sample src/main.js && cp -Rf dist/* pages/ && cp -f demo.html pages/",
+    "build:pages": "vue-cli-service build --target lib --inline-vue --name shadow-sample src/main.js && cp -Rf dist/* docs/ && cp -f demo.html docs/",
     "demo": "http-server ./ -c-1 -o /demo",
     "http": "http-server ./ -c-1 -o"
   },
